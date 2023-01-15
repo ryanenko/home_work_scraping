@@ -27,9 +27,8 @@ for i in list_title:
     link = i.find('a',class_="serp-item__title" )['href']
     city = i.find('div',{"data-qa": "vacancy-serp__vacancy-address"}).text
     salary_link = i.find('span', class_= 'bloko-header-section-3')
-    pprint(salary_link)
-    if salary_link == None:
-        salary = 'Не указан'
+    if salary_link is None:
+        salary = 'З/п не указанa'
     else:
         salary = re.sub(pattern, pattern_sub, salary_link.text )   
     job_list.append({'title':title, 'link': link, 'city':city, 'salary': salary})
